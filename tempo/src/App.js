@@ -82,7 +82,16 @@ function App() {
         return item;
       })
     });
-  }
+  };
+
+  onDelete = index => {
+    this.setState({
+      items: [
+        ...this.state.items.slice(0, index),
+        ...this.state.items.slice(index + 1)
+      ]
+    });
+  };
 
 
 
