@@ -12,7 +12,7 @@ export const ChoreCard = ({toggleEditing, chore, onChange, index, onDelete}) => 
                     type="text"
                     name="name"
                     className="form-control"
-                    placeholder="Chore"
+                    placeholder="Wish"
                     value={chore.name}
                     onChange={event => onChange(event, index)}
                     required
@@ -31,7 +31,7 @@ export const ChoreCard = ({toggleEditing, chore, onChange, index, onDelete}) => 
                     name="hours"
                     className="form-control"
                     placeholder="Hours"
-                    value={chore.price}
+                    value={chore.hours}
                     onChange={event => onChange(event, index)}
                     required
                 />
@@ -43,6 +43,8 @@ export const ChoreCard = ({toggleEditing, chore, onChange, index, onDelete}) => 
                   <p className="card-text">
                     <span className="badge badge-secondary">Price</span>
                     <span>${chore.price}</span>
+                    <span className="badge badge-secondary">Hours</span>
+                    <span>{chore.hours}</span>
                   </p>
                 </div>
               </div>

@@ -7,7 +7,7 @@ export const AddChore = ({name, price, hours, onChange}) => (
             <input
             type = "text"
             className = "form-control"
-            placeholder = "Chore"
+            placeholder = "Item"
             value = {name}
             name = "name"
             onChange = {onChange}
