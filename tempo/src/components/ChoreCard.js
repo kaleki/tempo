@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const ChoreCard = ({toggleEditing, chore, onChange, index, onDelete}) => (
+export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
     <div className="col-md-6 col-lg-3">
       <div className="card">
         <div className="card-body">
@@ -55,7 +55,7 @@ export const ChoreCard = ({toggleEditing, chore, onChange, index, onDelete}) => 
               <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={toggleEditing}>
+                  onClick={EditItem}>
                 {chore.isEditing ? "Save" : "Edit"}
               </button>
               <button

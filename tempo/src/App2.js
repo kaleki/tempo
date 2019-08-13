@@ -60,22 +60,16 @@ import { AddChore } from "./components/AddChore";
    })
   };
 
-  // handleItemUpdate = (event, index) => {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   this.setState({
-  //     items: this.state.items.map((item, itemIndex) => {
-  //       if (itemIndex === index) {
-  //         return {
-  //           ...item,
-  //           [name]: value
-  //         }
-  //       }
-  //       return item;
-  //     })
-  //   });
-  // };
+  EditItem = index => {
+    this.setState({items:[this.state.items.map((item, itemIndex)=> {
+      if (itemIndex === index){
+        return {
+          isEditing: !item.isEditing
+        }
+      }
+      return item;
+    })]})
+  }
 
   onDelete = index => {
     this.setState({
