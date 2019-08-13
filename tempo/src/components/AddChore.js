@@ -26,13 +26,13 @@ export const AddChore = ({name, price, hours, onChange}) => (
             <input 
             type = "text"
             className = "form-control"
-            placeholder = "Hours"
+            placeholder = "Wage"
             value = {hours}
             name = "hours"
             onChange = {onChange}
             />
             </div>
-            <button type = "submit" className = "btn btn-primary">Save</button>
+            <button type = "submit" className = "btn btn-primary">Calculate</button>
         </form>
     </div>
 );

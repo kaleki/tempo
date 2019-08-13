@@ -39,25 +39,8 @@ import { AddChore } from "./components/AddChore";
     const {name, price, hours} = this.state;
     const itemsInState = this.state.items;
     const itemsArrayLength = itemsInState.length;
-    const id = itemsArrayLength 
-               ?
-               (itemsInState[itemsArrayLength - 1].id + 1) 
-               : 
-               1;
-    this.setState({
-     items: [
-       ...itemsInState,
-       Object.assign({}, {
-         id,
-         name,
-         price,
-         hours
-       })
-     ],
-     name: "",
-     price: "",
-     hours: ""
-   })
+    const id = itemsArrayLength ?(itemsInState[itemsArrayLength - 1].id + 1):1;
+    this.setState({items:[...itemsInState,Object.assign({}, {id,name,price,hours})],name: "",price: "",hours: ""})
   };
 
   EditItem = index => {
