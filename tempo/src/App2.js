@@ -29,9 +29,7 @@ import { AddChore } from "./components/AddChore";
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    this.setState({
-      [name]: value
-    });
+    this.setState({[name]: value});
   };
 
   addItem = event => {
