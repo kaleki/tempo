@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const AddChore = ({name, price, hours, onChange}) => (
+export const AddChore = ({name, price, hours, onChange, onSubmit}) => (
     <div className = "row justify-content-center">
         <form className = "form-inline">
             <input
@@ -32,10 +32,10 @@ export const AddChore = ({name, price, hours, onChange}) => (
             onChange = {onChange}
             />
             </div>
-            <button type = "submit" className = "btn btn-primary">Calculate</button>
+            <button type = "submit" onClick = {onSubmit} className = "btn btn-primary">Calculate</button>
         </form>
     </div>
-);
+); 
 
 AddChore.propTypes = {
     name: PropTypes.string.isRequired,

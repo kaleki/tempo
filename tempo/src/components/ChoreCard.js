@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
+export const ChoreCard = ({item,EditItem, onChange, index, onDelete}) => (
     <div className="col-md-6 col-lg-3">
       <div className="card">
         <div className="card-body">
-          {chore.isEditing
+          {item.isEditing
               ?
               <div className="mb-4">
                 <input
@@ -13,7 +13,7 @@ export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
                     name="name"
                     className="form-control"
                     placeholder="Wish"
-                    value={chore.name}
+                    value={item.name}
                     onChange={event => onChange(event, index)}
                     required
                 />
@@ -22,7 +22,7 @@ export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
                     name="price"
                     className="form-control"
                     placeholder="Price"
-                    value={chore.price}
+                    value={item.price}
                     onChange={event => onChange(event, index)}
                     required
                 />
@@ -31,20 +31,20 @@ export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
                     name="hours"
                     className="form-control"
                     placeholder="Hours"
-                    value={chore.hours}
+                    value={item.hours}
                     onChange={event => onChange(event, index)}
                     required
                 />
               </div>
               :
               <div>
-                <h4 className="card-title text-center">{chore.name}</h4>
+                <h4 className="card-title text-center">{item.name}</h4>
                 <div className="row justify-content-center mb-4">
                   <p className="card-text">
                     <span className="badge badge-secondary">Price</span>
-                    <span>${chore.price}</span>
+                    <span>${item.price}</span>
                     <span className="badge badge-secondary">Hours</span>
-                    <span>{chore.hours}</span>
+                    <span>{item.price/item.hours}</span>
                   </p>
                 </div>
               </div>
@@ -56,7 +56,7 @@ export const ChoreCard = ({chore,EditItem, onChange, index, onDelete}) => (
                   type="button"
                   className="btn btn-primary"
                   onClick={EditItem}>
-                {chore.isEditing ? "Save" : "Edit"}
+                {item.isEditing ? "Save" : "Edit"}
               </button>
               <button
                   type="button"

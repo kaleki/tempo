@@ -18,7 +18,7 @@ import { AddChore } from "./components/AddChore";
           id: 1,
           name: "XBOX",
           price: "300",
-          hours: "30"
+          hours: "15"
         }
       ]
     }
@@ -35,13 +35,13 @@ import { AddChore } from "./components/AddChore";
   addItem = event => {
     event.preventDefault();
     const {name, price, hours} = this.state;
-    const itemsInState = this.state.items;
-    const itemsArrayLength = itemsInState.length;
-    const id = itemsArrayLength ?(itemsInState[itemsArrayLength - 1].id + 1):1;
-    this.setState({items:[...itemsInState,Object.assign({}, {id,name,price,hours})],name: "",price: "",hours: ""})
+    const newItem = this.state.items;
+    const newItemArray = newItem.length; 
+    const id = newItemArray ?(newItem[newItemArray -1].id+1):1;
+    this.setState({items:[...newItem, Object.assign({},{id, name, price, hours})], name: "", price: "", hours:""})
   };
 
-  EditItem = index => {
+  editItem = index => {
     this.setState({items:[this.state.items.map((item, itemIndex)=> {
       if (itemIndex === index){
         return {
@@ -73,7 +73,7 @@ import { AddChore } from "./components/AddChore";
           price = {price}
           hours = {hours}
           onChange = {this.handleInputChange}
-          onSubmit = {this.addChore}
+          onSubmit = {this.addItem}
           />
           <h2 className = "display text-center">Wish List</h2>
 
@@ -83,9 +83,8 @@ import { AddChore } from "./components/AddChore";
                 <ChoreCard
                     key={item.id}
                     index={index}
-                    chore={item}
-                    toggleEditing={() => this.toggleItemEditing(index)}
-                    onChange={this.handleItemUpdate}
+                    item={item}
+                    EditItem={() => this.editItem(index)}
                     onDelete={() => this.onDelete(index)}
                 />
             )

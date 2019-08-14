@@ -21,7 +21,7 @@ const NavBar = () => {
       {isAuthenticated && (
       <span>
         <Link to="/">Home</Link>&nbsp;
-        <Link to="/user">User</Link>
+        <Link to="/user">My Wish List</Link>
       </span>
     )}
     </div>

@@ -12,11 +12,11 @@ const User = () => {
 
   return (
     <>
-      <img src={user.picture} alt="User" />
+      {/* <img src={user.picture} alt="User" />
 
       <h2>{user.name}</h2>
       <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
+      <code>{JSON.stringify(user, null, 2)}</code> */}
     </>
   );
 };
