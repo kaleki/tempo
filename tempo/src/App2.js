@@ -21,7 +21,12 @@ import { AddChore } from "./components/AddChore";
           hours: "15"
         }
       ]
-    }
+  
+    };
+
+  showprofile = event =>{
+    this.setState({showOn: !this.setState.showOn})
+  }
  
 
   handleInputChange = event => {
@@ -41,21 +46,14 @@ import { AddChore } from "./components/AddChore";
     this.setState({items:[...newItem, Object.assign({},{id, name, price, hours})], name: "", price: "", hours:""})
   };
 
-  editItem = index => {
-    this.setState({items:[this.state.items.map((item, itemIndex)=> {
-      if (itemIndex === index){
-        return {
-          isEditing: !item.isEditing
-        }
-      }
-      return item;
-    })]})
-  }
+  
 
   onDelete = index => {
     this.setState({
       items: [...this.state.items.slice(0, index),...this.state.items.slice(index + 1)]});
   };
+
+
 
 
 
@@ -65,9 +63,9 @@ import { AddChore } from "./components/AddChore";
    return ( <div className="App">
       <BrowserRouter>
       <header>
-        <NavBar />
+        <NavBar/>
         <Jumbotron />
-        <div className = "container">
+        <div style = {({display: this.state.showOn ? "block": "none"})} className = "container">
           <AddChore 
           name = {name}
           price = {price}
@@ -78,19 +76,18 @@ import { AddChore } from "./components/AddChore";
           <h2 className = "display text-center">Wish List</h2>
 
           <div className = "row">
-          {
-            this.state.items.map((item, index) =>
+          {this.state.items.map((item, index) =>
                 <ChoreCard
                     key={item.id}
                     index={index}
                     item={item}
-                    EditItem={() => this.editItem(index)}
                     onDelete={() => this.onDelete(index)}
                 />
             )
           }
           </div>
         </div>
+        <button className = "btn-btn-primary" onClick = {this.showprofile}>My Profile</button>
 
       </header>
       <Switch>
