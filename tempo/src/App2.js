@@ -24,9 +24,13 @@ import { AddChore } from "./components/AddChore";
   
     };
 
-  showprofile = event =>{
+  showprofile = event => {
     this.setState({showOn: !this.setState.showOn})
-  }
+  };
+
+  closeprofile = event => {
+    this.setState({hide: !this.setState.hide})
+  };
  
 
   handleInputChange = event => {
@@ -65,7 +69,7 @@ import { AddChore } from "./components/AddChore";
       <header>
         <NavBar/>
         <Jumbotron />
-        <div style = {({display: this.state.showOn ? "block": "none"})} className = "container">
+        <div style = {({display: this.state.showOn ? "block": "none"})}  className = "container">
           <AddChore 
           name = {name}
           price = {price}
@@ -87,7 +91,8 @@ import { AddChore } from "./components/AddChore";
           }
           </div>
         </div>
-        <button className = "btn-btn-primary" onClick = {this.showprofile}>My Profile</button>
+        <button type = "button" className = "btn btn-primary" onClick = {this.showprofile}>View Profile</button>
+        
 
       </header>
       <Switch>
