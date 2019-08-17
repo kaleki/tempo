@@ -32,7 +32,7 @@ export const AddChore = ({name, price, hours, onChange, onSubmit}) => (
             onChange = {onChange}
             />
             </div>
-            <button type = "submit" onClick = {onSubmit} className = "btn btn-primary">Calculate</button>
+            <button type = "submit" onClick = {onSubmit} className = "btn btn-primary">Save</button>
         </form>
     </div>
 ); 

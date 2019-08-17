@@ -22,6 +22,12 @@ export const AddTask = ({task, time, onChange, onSubmit}) => (
             onChange = {onChange}
             />
             </div>
+            <button type = "submit" onClick = {onSubmit} className = "btn btn-primary">Calculate</button>
         </form>
     </div>
-)
+);
+
+AddTask.propTypes = {
+    task: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired
+};

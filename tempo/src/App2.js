@@ -5,6 +5,7 @@ import {Jumbotron} from "./components/Jumbotron";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import User from "./components/User";
 import { AddChore } from "./components/AddChore";
+import { AddTask } from "./components/AddTask";
 
 
 
@@ -19,6 +20,13 @@ import { AddChore } from "./components/AddChore";
           name: "XBOX",
           price: "300",
           hours: "15"
+        }
+      ],
+      task: [
+        {
+          id:1,
+          chore: "clean room",
+          time: "30 minutes"
         }
       ]
   
@@ -50,6 +58,15 @@ import { AddChore } from "./components/AddChore";
     this.setState({items:[...newItem, Object.assign({},{id, name, price, hours})], name: "", price: "", hours:""})
   };
 
+  addTask = event => {
+    event.preventDefault();
+    const {task, time} = this.state;
+    const newTask = this.state.task;
+    const newTaskArray = newTask.length;
+    const id = newTaskArray ?(newTask[newTaskArray -1].id+1):1;
+    this.setState({task:[...newTask, Object.assign({},{id,task,time})], chore: "", time: ""})
+  };
+
   
 
   onDelete = index => {
@@ -63,6 +80,7 @@ import { AddChore } from "./components/AddChore";
 
   render () {
     const {name, price, hours} = this.state;
+    const {task, time} = this.state;
 
    return ( <div className="App">
       <BrowserRouter>
@@ -86,9 +104,15 @@ import { AddChore } from "./components/AddChore";
                     index={index}
                     item={item}
                     onDelete={() => this.onDelete(index)}
-                />
-            )
-          }
+                />)}
+          <div className = "row">
+              <AddTask
+              task = {task}
+              time = {time}
+              onChange = {this.handleInputChange}
+              onSubmit = {this.addTask}
+              />
+          </div>
           </div>
         </div>
         <button type = "button" className = "btn btn-primary" onClick = {this.showprofile}>View Profile</button>
