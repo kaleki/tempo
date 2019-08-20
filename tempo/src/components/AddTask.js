@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const AddTask = ({task, time, onChange, onSubmit}) => (
+export const AddTask = ({chore, time, onChange, onSubmit}) => (
     <div className = "row justify-content-center">
         <form className = "form-inline">
             <input
             type = "text"
             className = "form-control"
             placeholder = "Chore"
-            value = {task}
+            value = {chore}
             name = "task"
             onChange = {onChange}
             />
@@ -28,6 +28,7 @@ export const AddTask = ({task, time, onChange, onSubmit}) => (
 );
 
 AddTask.propTypes = {
-    task: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired
+   // chore: PropTypes.string.isRequired,
+    // time: PropTypes.string.isRequired
 };
+export default AddTask;

@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddTask from './AddTask';
 
-export const ChoreCard = ({item, onChange, index, onDelete}) => (
+
+export const ChoreCard = ({item, onChange, index, onDelete, task, time}) => (
     <div className="col-md-6 col-lg-3">
       <div className="card">
         <div className="card-body">
-          {item.isEditing
-              ?
+          {item.isEditing ?
+              
               <div className="mb-4">
                 <input
                     type="text"
@@ -67,10 +69,11 @@ export const ChoreCard = ({item, onChange, index, onDelete}) => (
             
 
 ChoreCard.propTypes = {
-  image: PropTypes.string.isRequired,
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     hours: PropTypes.string.isRequired
   })
 };
+export default AddTask;
+

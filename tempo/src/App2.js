@@ -5,7 +5,7 @@ import {Jumbotron} from "./components/Jumbotron";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import User from "./components/User";
 import { AddChore } from "./components/AddChore";
-import { AddTask } from "./components/AddTask";
+
 
 
 
@@ -25,7 +25,7 @@ import { AddTask } from "./components/AddTask";
       task: [
         {
           id:1,
-          chore: "clean room",
+          chore: '',
           time: "30 minutes"
         }
       ]
@@ -60,11 +60,11 @@ import { AddTask } from "./components/AddTask";
 
   addTask = event => {
     event.preventDefault();
-    const {task, time} = this.state;
+    const {chore, time} = this.state;
     const newTask = this.state.task;
     const newTaskArray = newTask.length;
     const id = newTaskArray ?(newTask[newTaskArray -1].id+1):1;
-    this.setState({task:[...newTask, Object.assign({},{id,task,time})], chore: "", time: ""})
+    this.setState({task:[...newTask, Object.assign({},{id,chore,time})], chore: "", time: ""})
   };
 
   
@@ -80,7 +80,7 @@ import { AddTask } from "./components/AddTask";
 
   render () {
     const {name, price, hours} = this.state;
-    const {task, time} = this.state;
+    
 
    return ( <div className="App">
       <BrowserRouter>
@@ -98,21 +98,20 @@ import { AddTask } from "./components/AddTask";
           <h2 className = "display text-center">Wish List</h2>
 
           <div className = "row">
-          {this.state.items.map((item, index) =>
-                <ChoreCard
-                    key={item.id}
-                    index={index}
-                    item={item}
-                    onDelete={() => this.onDelete(index)}
-                />)}
-          <div className = "row">
-              <AddTask
-              task = {task}
-              time = {time}
+          {this.state.items.map((item, index) => {
+            return (
+              <ChoreCard
+              key={item.id}
+              index={index}
+              item={item}
+              onDelete={() => this.onDelete(index)}
+              chore = {this.state.task[0].chore}
+              // time = {time}
               onChange = {this.handleInputChange}
-              onSubmit = {this.addTask}
               />
-          </div>
+            )
+          }
+          )}
           </div>
         </div>
         <button type = "button" className = "btn btn-primary" onClick = {this.showprofile}>View Profile</button>
