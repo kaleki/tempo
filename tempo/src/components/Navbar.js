@@ -13,10 +13,12 @@ const NavBar = () => {
       <Link to="/" className="navbar-brand">tempo</Link>
       <div className = "collapse navbar-collasp">
         <ul className = "navbar-nav mr-auto">
-      {!isAuthenticated && (<button onClick={() =>loginWithRedirect({})}>Log in</button>)}
+          <li className = "navbar-item">
+      <Link  to = "/" className = "navbar-item">{!isAuthenticated && (<button onClick={() =>loginWithRedirect({})}>Log in</button>)}</Link>
       
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+      </li>
       </ul>
       </div>
       </nav>
