@@ -2,15 +2,14 @@ import React, {Component} from "react";
 import NavBar from "./components/Navbar";
 import {ChoreCard} from "./components/ChoreCard";
 import {Jumbotron} from "./components/Jumbotron";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import User from "./components/User";
 import { AddChore } from "./components/AddChore";
+import './App2.css';
 
 
 
-
-
-  class App2 extends Component {
+class App2 extends Component {
     state = {
       name: "",
       price: "",
@@ -83,12 +82,22 @@ import { AddChore } from "./components/AddChore";
     const {name, price, hours} = this.state;
     
 
-   return ( <div className="App">
+   return ( <div style = {{background: "#0085B2"}} className="App">
       <BrowserRouter>
-      <header>
+      <header style = {{background: "#315b7e"}}>
         <NavBar/>
+        <nav className="navbar navbar-expand-lg">
+          <Link to="/" className="navbar-brand text-white">tempo</Link>
+          <div className="collpase nav-collapse">
+            <ul className="navbar-nav mr-auto">
+              <li className="navbar-item">
+              <button type = "button" className = "btn " onClick = {this.showprofile}>My Wish List</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <Jumbotron />
-        <div className = "container">
+        <div style = {({display: this.state.showOn ? "block": "none"})} className = "container">
           <AddChore 
           name = {name}
           price = {price}
@@ -96,7 +105,7 @@ import { AddChore } from "./components/AddChore";
           onChange = {this.handleInputChange}
           onSubmit = {this.addItem}
           />
-          <h2 className = "display text-center">Wish List</h2>
+          <h2 style = {{fontFamily:"Roboto Slab"}} className = "display text-center text-white">Wish List</h2>
 
           <div className = "row">
           {this.state.items.map((item, index) => {
@@ -106,10 +115,12 @@ import { AddChore } from "./components/AddChore";
               index={index}
               item={item}
               onDelete={() => this.onDelete(index)}
-              />)})}
+              />
+            )
+          }
+          )}
           </div>
         </div>
-        
         
 
       </header>

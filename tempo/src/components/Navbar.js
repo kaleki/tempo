@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth0 } from "../react-auth0";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { AddChore } from './AddChore';
+import './Navbar.css';
+
 
 
 
@@ -16,7 +16,7 @@ const NavBar = () => {
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
 
-      <Router>
+      {/* <Router>
           <div className="container">
             
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +24,7 @@ const NavBar = () => {
               <div className="collpase nav-collapse">
                 <ul className="navbar-nav mr-auto">
                   <li className="navbar-item">
-                    <Link to="/mywish" className="nav-link">My Wish List</Link>
+                    <Link to="/mywish/:id" className="nav-link">My Wish List</Link>
                   </li>
                 </ul>
               </div>
@@ -33,7 +33,7 @@ const NavBar = () => {
             
             <Route path="/mywish" component={AddChore} />
           </div>
-        </Router>
+        </Router> */}
   </div>
 
     

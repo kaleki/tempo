@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AddChore.css';
 
 export const AddChore = ({name, price, hours, onChange, onSubmit}) => (
-    <div className = "row justify-content-center">
+    <div className = "row justify-content-center text-white">
         <form className = "form-inline">
             <input
             type = "text"

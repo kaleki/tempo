@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 
-export const ChoreCard = ({item, onChange, index, onDelete, task, time}) => (
+export const ChoreCard = ({item, onChange, index, onDelete}) => (
     <div className="col-md-6 col-lg-3">
       <div className="card">
         <div className="card-body">
