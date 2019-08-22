@@ -9,6 +9,7 @@ import { AddChore } from "./components/AddChore";
 
 
 
+
   class App2 extends Component {
     state = {
       name: "",
@@ -87,7 +88,7 @@ import { AddChore } from "./components/AddChore";
       <header>
         <NavBar/>
         <Jumbotron />
-        <div style = {({display: this.state.showOn ? "block": "none"})}  className = "container">
+        <div className = "container">
           <AddChore 
           name = {name}
           price = {price}
@@ -105,16 +106,10 @@ import { AddChore } from "./components/AddChore";
               index={index}
               item={item}
               onDelete={() => this.onDelete(index)}
-              chore = {this.state.task[0].chore}
-              // time = {time}
-              onChange = {this.handleInputChange}
-              />
-            )
-          }
-          )}
+              />)})}
           </div>
         </div>
-        <button type = "button" className = "btn btn-primary" onClick = {this.showprofile}>View Profile</button>
+        
         
 
       </header>

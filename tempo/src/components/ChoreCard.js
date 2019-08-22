@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddTask from './AddTask';
+
 
 
 export const ChoreCard = ({item, onChange, index, onDelete, task, time}) => (
@@ -75,5 +75,5 @@ ChoreCard.propTypes = {
     hours: PropTypes.string.isRequired
   })
 };
-export default AddTask;
+
 
